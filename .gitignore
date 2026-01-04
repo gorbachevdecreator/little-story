@@ -1,0 +1,16 @@
+﻿# Секреты
+backend/.env
+
+# Python мусор
+**/__pycache__/
+**/*.pyc
+venv/
+
+# Node.js мусор
+node_modules/
+dist/
+
+# Системные файлы
+.git/
+.vscode/
+.DS_Store

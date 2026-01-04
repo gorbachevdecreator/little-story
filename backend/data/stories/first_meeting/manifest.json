@@ -1,0 +1,16 @@
+{
+  "id": "first_meeting",
+  "title": "Первая встреча",
+  "description": "Романтическая история о случайном знакомстве в парке, которое изменило всё.",
+  "cover": "https://placehold.co/400x600/2E8B57/FFFFFF/png?text=Meeting+Cover",
+  "seasons": [
+    {
+      "id": 1,
+      "title": "Сезон 1",
+      "episodes": [
+        { "id": "s1_e1", "title": "Эпизод 1: Мороженое", "file": "s1_e1.json", "cost": 1 },
+        { "id": "s1_e2", "title": "Эпизод 2: Свидание", "file": "s1_e2.json", "cost": 1 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+    "start_scene": "park_entrance",
+    "initial_state": {
+        "gold": 10,
+        "relationship_alice": 0
+    },
+    "scenes": {
+        "park_entrance": {
+            "background": "https://placehold.co/600x800/2E8B57/FFFFFF/png?text=Park+Entrance",
+            "flow": [
+                {
+                    "type": "say",
+                    "character": "Автор",
+                    "text": "Эпизод 1. Начало.",
+                    "sprite": null
+                },
+                {
+                    "type": "say",
+                    "character": "Незнакомка",
+                    "text": "Эй! Ты уронил свой билет.",
+                    "sprite": "https://placehold.co/400x600/FF69B4/FFFFFF/png?text=Girl+Normal"
+                },
+                {
+                    "type": "choice",
+                    "text": "Что ответить?",
+                    "options": [
+                        {
+                            "text": "Купить мороженое (5 монет)",
+                            "unique_id": "buy_icecream_s1",
+                            "next_scene": "end_episode",
+                            "conditions": {
+                                "gold": 5
+                            },
+                            "effects": {
+                                "gold": -5,
+                                "relationship_alice": 1
+                            }
+                        },
+                        {
+                            "text": "Извини, я на мели",
+                            "next_scene": "end_episode",
+                            "effects": {
+                                "relationship_alice": -1
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "end_episode": {
+            "background": "https://placehold.co/600x800/000000/FFFFFF/png?text=End",
+            "flow": [
+                {
+                    "type": "say",
+                    "character": "Система",
+                    "text": "Конец 1 серии. Спасибо!",
+                    "sprite": null
+                }
+            ]
+        }
+    }
+}

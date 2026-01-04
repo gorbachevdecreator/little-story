@@ -1,0 +1,27 @@
+{
+  "start_scene": "date_start",
+  "initial_state": {},
+  "scenes": {
+    "date_start": {
+      "background": "https://placehold.co/600x800/800080/FFFFFF/png?text=Romantic+Date",
+      "flow": [
+        { "type": "say", "character": "Система", "text": "Эпизод 2. Свидание.", "sprite": null },
+        { "type": "say", "character": "Алиса", "text": "Ого, ты пришел!", "sprite": "https://placehold.co/400x600/FF69B4/FFFFFF/png?text=Girl+Happy" },
+        {
+          "type": "choice",
+          "text": "Проверка памяти:",
+          "options": [
+            { "text": "Проверить баланс", "next_scene": "check_money" }
+          ]
+        }
+      ]
+    },
+    "check_money": {
+      "background": "https://placehold.co/600x800/800080/FFFFFF/png?text=Checking",
+      "flow": [
+        { "type": "say", "character": "Система", "text": "Если ты купил мороженое в 1 серии, у тебя сейчас 5 монет. Если нет - 10.", "sprite": null },
+        { "type": "say", "character": "Алиса", "text": "Ну что, идем гулять?", "sprite": "https://placehold.co/400x600/FF69B4/FFFFFF/png?text=Girl+Smile" }
+      ]
+    }
+  }
+}
