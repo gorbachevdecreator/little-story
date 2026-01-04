@@ -15,8 +15,12 @@ RUN npm run build
 # ЭТАП 2: Запуск (Production)
 FROM nginx:stable-alpine as production-stage
 
-# Копируем собранные файлы из этапа 1 в папку Nginx
+# Копируем собранные файлы сайта
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# !!! ДОБАВЛЯЕМ ЭТУ СТРОКУ НИЖЕ !!!
+# Копируем наш конфиг Nginx внутрь контейнера
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Открываем 80 порт
 EXPOSE 80
