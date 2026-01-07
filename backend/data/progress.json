@@ -1,7 +1,7 @@
 {
   "first_meeting": {
     "gold": 5,
-    "relationship_alice": 0,
+    "relationship_alice": 1,
     "buy_icecream_s1": true
   }
 }
