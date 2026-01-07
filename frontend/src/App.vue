@@ -45,14 +45,14 @@ onUnmounted(() => { if(timerInterval) clearInterval(timerInterval) })
 
 const loadLibrary = async () => {
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/library')
+    const res = await fetch('/api/library')
     library.value = await res.json()
   } catch (e) { console.error(e) }
 }
 
 const refreshUserProfile = async () => {
   try {
-    const res = await fetch('http://127.0.0.1:8000/api/user')
+    const res = await fetch('/api/user')
     userProfile.value = await res.json()
   } catch(e) {}
 }
@@ -60,7 +60,7 @@ const refreshUserProfile = async () => {
 // НОВОЕ: Функция сброса сердец (Debug)
 const resetHearts = async () => {
   try {
-    await fetch('http://127.0.0.1:8000/api/debug/reset_hearts', { method: 'POST' })
+    await fetch('/api/debug/reset_hearts', { method: 'POST' })
     await refreshUserProfile()
     alert("Сердца восстановлены до максимума!")
   } catch (e) {
@@ -73,7 +73,7 @@ const saveProgress = async () => {
   if (!selectedStoryManifest.value) return
   const storyId = selectedStoryManifest.value.id
   try {
-    await fetch(`http://127.0.0.1:8000/api/story/${storyId}/save`, {
+    await fetch(`/api/story/${storyId}/save`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(gameState.value)
@@ -89,7 +89,7 @@ const saveProgress = async () => {
 const openStoryProfile = async (storyId) => {
   try {
     loading.value = true
-    const res = await fetch(`http://127.0.0.1:8000/api/story/${storyId}/manifest`)
+    const res = await fetch(`/api/story/${storyId}/manifest`)
     selectedStoryManifest.value = await res.json()
     currentView.value = 'story_profile'
   } catch(e) { console.error(e) } 
@@ -107,7 +107,7 @@ const playEpisode = async (episodeId) => {
     const storyId = selectedStoryManifest.value.id
     
     // Делаем запрос
-    const res = await fetch(`http://127.0.0.1:8000/api/story/${storyId}/${episodeId}/start`, { method: 'POST' })
+    const res = await fetch(`/api/story/${storyId}/${episodeId}/start`, { method: 'POST' })
     
     // Если ошибка - читаем текст ошибки от сервера!
     if (!res.ok) {
